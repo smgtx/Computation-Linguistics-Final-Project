@@ -1,3 +1,5 @@
-import pylangacq
+import pylangacq as pla
 
-print(pylangacq.__version__)
+def getFile(filepath):
+    file = pla.read_chat(filepath)
+    return file
