@@ -1,15 +1,20 @@
 from importChatFile import getFile
 import nltk
 
-file = 'SE001.cha'
 
-def posTags(filepath):
-    f = getFile(file)
-    print(f.words())
+def posTagsFromFile(filepath):
+    f = getFile(filepath)
+    #print(f.words())
     wordPOS = []
     for word in f.words():
         data = nltk.word_tokenize(word)
         wordPOS.append(nltk.pos_tag(data)[0][1])
-    print(wordPOS)
+    #print(wordPOS)
     return wordPOS
-posTags(file)
+
+def posTagsFromObject(arr):
+    wordPOS = []
+    for word in arr.words():
+        data = nltk.word_tokenize(word)
+        wordPOS.append(nltk.pos_tag(data)[0][1])
+    return wordPOS
