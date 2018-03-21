@@ -1,0 +1,3 @@
+File	Speaker ID	Duration	Total Utts	MLU Utts	MLU Words	MLU Morphemes	FREQ types	FREQ tokens	FREQ TTR	Verbs/Utt	% Word Errors	Utt Errors	mor Words	density	% Nouns	% Plurals	% Verbs	% Aux	% 3S	% 1S/3S	% PAST	% PASTP	% PRESP	% prep|	% adv|	% conj|	% det|	% pro|	retracing[//]	repetition[/]	WPM	Overall Intelligibility		[p:n]
+mdk_SE006_PreTx_CatRescue.mor.pst.cex	eng|change_corpus_later|SE006|||||Participant|||	0:00:00	11	11	13	14.545	40	143	0.28	1.909	0	0	147	0.32	23.129	0.68	14.286	6.803	9.524	0	0	0.68	6.122	6.122	4.762	5.442	24.49	2.721	1	0	64	145/145		1
+mdk_SE006_PreTx_CatRescue.mor.pst.cex	eng|change_corpus_later|SE006|||||Participant|||	0:00:00	11	11	13	14.545	40	143	0.28	1.909	0	0	147	0.32	34	1	21	10	14	0	0	1	9	9	7	8	36	4	1	0				
