@@ -5,6 +5,7 @@ import nltk
 def posTagsFromFile(filepath):
     f = getFile(filepath)
     #print(f.words())
+
     wordPOS = []
     for word in f.words():
         data = nltk.word_tokenize(word)
