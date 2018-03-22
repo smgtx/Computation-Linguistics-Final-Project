@@ -3,13 +3,14 @@ import os
 from sklearn.model_selection import cross_val_score
 from sklearn.naive_bayes import GaussianNB
 from importChatFile import getFile
-from posTagging import posTagsFromObject, posTagsFromFile
+from posTagging import posTrigrams
 from pprint import pprint
 import pylangacq as pla
 from sklearn import metrics
 import numpy as np
 from pprint import pprint
 from sklearn.preprocessing import OneHotEncoder
+from posTagging import posTrigrams
 
 
 
@@ -34,7 +35,7 @@ for x in X_train:
 
 
 ###Call your function with X_train as param here###
-
+X_train_trigram =
 
 
 
