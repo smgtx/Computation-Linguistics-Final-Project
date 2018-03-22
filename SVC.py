@@ -1,7 +1,8 @@
+from sklearn import metrics
+from sklearn.model_selection import cross_val_score
 from sklearn.svm import SVC
 import pandas as pd
 from pprint import pprint
-import matplotlib.pyplot as plt
 
 
 train_data = pd.read_csv('SVM_Data.csv')
@@ -25,7 +26,7 @@ predictions = model.predict(X_test)
 
 print('Accuracy Score: ', metrics.accuracy_score(y_test, predictions))
 
-cVal = cross_val_score(GaussianNB(), X_train, y_train, scoring='accuracy', cv=10 )
+cVal = cross_val_score(SVC(), X_train, y_train, scoring='accuracy', cv=3)
 print("Cross-Validated Score: ", cVal.mean())
 
 
