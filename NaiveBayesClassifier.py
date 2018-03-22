@@ -3,7 +3,7 @@ import os
 from sklearn.model_selection import cross_val_score
 from sklearn.naive_bayes import GaussianNB
 from importChatFile import getFile
-from posTagging import posTagsFromObject, posTagsFromFile
+from posTagging import posTagsFromObject, posTagsFromFile, posTrigrams
 from pprint import pprint
 import pylangacq as pla
 from sklearn import metrics
@@ -55,8 +55,6 @@ for file in test_files.filenames():
 
 
 
-
-
 #######################
 
 
@@ -71,11 +69,20 @@ for x in X_test:
 for x in X_test:
     for num in range(0, len(x)):
         idx = labels.index(x[num])
-        x[num] = idx
+        x[num] = str(idx)
 for x in X_train:
     for num in range(0, len(x)):
         idx = labels.index(x[num])
-        x[num] = idx
+        x[num] = str(idx)
+
+X_test_trigrams = []
+X_train_trigrams= []
+
+for x in X_train:
+    X_train_trigrams.append(posTrigrams(x))
+
+for x in X_train:
+    X_test_trigrams.append(posTrigrams(x))
 
 
 X_data = X_train + X_test
@@ -85,29 +92,26 @@ y_data = y_train + y_test
 
 
 
+print(X_test_trigrams)
 
-
-
-
-print(X_train)
 
 X_data = np.asarray([np.array(xi) for xi in X_data])
 y_data = np.asarray([np.array(xi) for xi in y_data])
-X_train = np.asarray([np.array(xi) for xi in X_train])
+X_train = np.asarray([np.array(xi) for xi in X_train_trigrams])
 y_train = np.asarray([np.array(xi) for xi in y_train])
-X_test = np.asarray([np.array(xi) for xi in X_test])
+X_test = np.asarray([np.array(xi) for xi in X_test_trigrams])
 y_test = np.asarray([np.array(xi) for xi in y_test])
 
 
-pprint(X_test)
+#pprint(X_test)
 
-'''
+
 model = GaussianNB()
 model.fit(X_train, y_train)
 
 
 print("Score: ", model.score(X_test, y_test))
-
+'''
 predictions = model.predict(X_test)
 
 print('Accuracy Score: ', metrics.accuracy_score(y_test, predictions))
