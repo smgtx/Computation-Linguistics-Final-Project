@@ -30,5 +30,4 @@ wordy = text.split()
 print(posTrigrams(wordy))
 n=0
 
-for list in posTrigrams(wordy):
-    print(list)
+
