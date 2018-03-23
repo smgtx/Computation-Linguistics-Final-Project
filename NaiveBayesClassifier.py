@@ -82,46 +82,98 @@ X_train_trigrams = []
 for x in X_train:
     X_train_trigrams.append(posTrigrams(x))
 
-for x in X_train:
+for x in X_test:
     X_test_trigrams.append(posTrigrams(x))
 
 
 
-X_data = X_train + X_test
-y_data = y_train + y_test
+X_test0 = []
+y_test0 = []
+counter = 0
+for x in X_test_trigrams:
+    classification = y_test[counter]
+    for y in x:
+        X_test0.append(y)
+        y_test0.append(classification)
+
+    counter+=1
+
+X_train0=[]
+y_train0=[]
+counter = 0
+for x in X_train_trigrams:
+    classification = y_train[counter]
+    for y in x:
+        X_train0.append(y)
+        y_train0.append(classification)
+    counter+=1
+print(y_test0)
+print(y_train0)
 
 
 
+X_data = X_train0 + X_test0
+y_data = y_train0 + y_test0
+X_train00=[]
 
 
-print(X_test_trigrams)
+print(X_train0)
+counter = 0
+'''for x in X_train0:
+    X_train00[counter] = []
+    for y in x:
+        X_train00[counter].append(y)
+    counter+=1
+'''
 
+for x in X_train0:
+    temp = []
+    for y in x:
+        inty = int(y)
+        temp.append(inty)
+    X_train00.append(temp)
+
+
+X_test00=[]
+for x in X_test0:
+    temp = []
+    for y in x:
+        inty = int(y)
+        temp.append(inty)
+    X_test00.append(temp)
+
+'''
 
 X_data = np.asarray([np.array(xi) for xi in X_data])
 y_data = np.asarray([np.array(xi) for xi in y_data])
-X_train = np.asarray([np.array(xi) for xi in X_train_trigrams])
-y_train = np.asarray([np.array(xi) for xi in y_train])
-X_test = np.asarray([np.array(xi) for xi in X_test_trigrams])
-y_test = np.asarray([np.array(xi) for xi in y_test])
+X_train = np.asarray([np.array(xi) for xi in X_train0])
+y_train = np.asarray([np.array(xi) for xi in y_train0])
+X_test = np.asarray([np.array(xi) for xi in X_test0])
+y_test = np.asarray([np.array(xi) for xi in y_test0])
 
 
-#pprint(X_test)
-
-
-model = GaussianNB()
-model.fit(X_train, y_train)
-
-
-print("Score: ", model.score(X_test, y_test))
+pprint(X_test)
 '''
-predictions = model.predict(X_test)
 
-print('Accuracy Score: ', metrics.accuracy_score(y_test, predictions))
+X = np.array(X_train00)
+Y = np.array(y_train0)
+X_test01 = np.array(X_test00)
+y_test01 = np.array(y_test0)
 
-cVal = cross_val_score(GaussianNB(), X_train, y_train, scoring='accuracy', cv=10 )
+
+from sklearn.naive_bayes import GaussianNB
+clf = GaussianNB()
+clf.fit(X,Y)
+print("Score: ", clf.score(X_test01, y_test01))
+
+predictions = clf.predict(X_test01)
+
+print('Accuracy Score: ', metrics.accuracy_score(y_test01, predictions))
+
+cVal = cross_val_score(GaussianNB(), X, Y, scoring='accuracy', cv=10 )
 print("Cross-Validated Score: ", cVal.mean())
 
-'''
+
 
 
 

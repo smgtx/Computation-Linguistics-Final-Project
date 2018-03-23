@@ -26,6 +26,6 @@ def posTrigrams(words):
         temp = list(trigram)
         sample.append(temp)
     return sample
-print(posTrigrams("my name is Alli"))
+#print(posTrigrams("my name is Alli"))
 
 
