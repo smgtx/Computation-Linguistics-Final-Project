@@ -23,11 +23,9 @@ def posTagsFromObject(arr):
 def posTrigrams(words):
     sample = []
     for trigram in nltk.trigrams(words):
-        sample.append(trigram)
+        temp = list(trigram)
+        sample.append(temp)
     return sample
-text = "My name is Alli and I'm programming again whudduppp"
-wordy = text.split()
-print(posTrigrams(wordy))
-n=0
+print(posTrigrams("my name is Alli"))
 
 

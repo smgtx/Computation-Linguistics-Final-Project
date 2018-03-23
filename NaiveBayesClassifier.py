@@ -15,7 +15,7 @@ from posTagging import posTrigrams
 
 
 
-train_files = pla.read_chat("/Users/sandeep/Google Drive/Sandeep/College/4th Semester/Computational Linguistics/Computation-Linguistics-Final-Project/Data/Train/*.cha")
+train_files = pla.read_chat("/Users/Alli/Desktop/Spring 2018/Comp. Ling/LingProject 2/IntermediateTrainingFIles/*.cha")
 
 types = {'SE' : 3, 'LP' : 1, 'SD' : 2}
 
@@ -35,12 +35,12 @@ for x in X_train:
 
 
 ###Call your function with X_train as param here###
-X_train_trigram =
+
 
 
 
 ########################
-test_files = pla.read_chat("/Users/sandeep/Google Drive/Sandeep/College/4th Semester/Computational Linguistics/Computation-Linguistics-Final-Project/Data/Test/*.cha")
+test_files = pla.read_chat("/Users/Alli/Desktop/Spring 2018/Comp. Ling/LingProject 2/IntermediateTestingFiles/*.cha")
 
 X_test = []
 y_test = []
@@ -76,14 +76,15 @@ for x in X_train:
         idx = labels.index(x[num])
         x[num] = str(idx)
 
-X_test_trigrams = []
-X_train_trigrams= []
 
+X_test_trigrams = []
+X_train_trigrams = []
 for x in X_train:
     X_train_trigrams.append(posTrigrams(x))
 
 for x in X_train:
     X_test_trigrams.append(posTrigrams(x))
+
 
 
 X_data = X_train + X_test
