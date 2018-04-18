@@ -10,7 +10,7 @@ train_data = pd.read_csv('SVM_Data.csv')
 X_train = train_data.loc[:,"Total Utts" : "WPM"]
 y_train = train_data["Output"]
 
-pprint(y_train)
+#pprint(y_train)
 
 test_data = pd.read_csv('SVM_Test.csv')
 
@@ -28,5 +28,3 @@ print('Accuracy Score: ', metrics.accuracy_score(y_test, predictions))
 
 cVal = cross_val_score(SVC(), X_train, y_train, scoring='accuracy', cv=3)
 print("Cross-Validated Score: ", cVal.mean())
-
-

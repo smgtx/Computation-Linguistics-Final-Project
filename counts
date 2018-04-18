@@ -1,0 +1,42 @@
+specifics = ["kite", 'sail', "dog", "picnic"]
+vague = ["thing", "things", "stuff"]
+
+'''
+read in files:
+dictionary<type, <filename, <words, count>>>
+
+data = {}
+files = []
+
+for type in files:
+    if type not in data:
+        data[type] = {}
+    if filename not in data[type]:
+        data[type][filename] = {}
+    for spec in specifics:
+        if spec not in data[type][filename]:
+            data[type][filename][spec] = 0
+    for spec in vague:
+        if spec not in data[type][filename]:
+            data[type][filename][spec] = 0
+'''
+data = {}
+file = open("data.txt", "r")
+statements = file.read()
+statements = statements.split("/*****/")
+for statement in statements:
+    splits = statement.split()
+    type = splits[0]
+    filename = splits[1]
+    if type not in data:
+        data[type] = {}
+    if filename not in data[type]:
+        data[type][filename] = {}
+    for word in specifics:
+        if word not in data[type][filename]:
+            data[type][filename][word] = 0
+        data[type][filename][word] = statement.count(word)
+    for word in vague:
+        if word not in data[type][filename]:
+            data[type][filename][word] = 0
+        data[type][filename][word] = statement.count(word)
