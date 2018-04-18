@@ -4,3 +4,4 @@ for x in file:
     nfv.append(x.strip("\n"))
 for x in nfv:
     print(x)
+file.close()
